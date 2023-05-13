@@ -1,19 +1,13 @@
 import MyGPT
 from threading import Thread
 import MySignals
-from PySide6.QtCore import Slot
 from PySide6 import QtWidgets
 import datetime
-from PySide6.QtCore import Slot, Qt
+from PySide6.QtCore import Slot, Qt, QFile
 import os
-from PySide6.QtCore import QFile
 from PySide6.QtUiTools import QUiLoader
-from PySide6.QtWidgets import QWidget
+from PySide6.QtWidgets import QWidget, QPlainTextEdit, QApplication
 # 在命令行窗口或终端中运行designer命令启动Qt Designer。
-
-# 任何一个PySide界面程序都需要使用QApplication
-# 我们要展示一个普通的窗口，所以需要导入QWidget，用来让我们自己的类继承
-from PySide6.QtWidgets import QApplication, QWidget
 
 signal = MySignals.Signals()
 old_answer = ''
@@ -23,7 +17,7 @@ class MyWidget(QWidget):
     def __init__(self):
         super().__init__()
           # 加载ui文件
-        qfile = QFile(r"GQUPT.ui")
+        qfile = QFile(r"GQUPT-V2.0.ui")
         qfile.open(QFile.ReadOnly)
 
         # 创建ui窗口对象
@@ -44,10 +38,16 @@ class MyWidget(QWidget):
         # 窗口置顶
         self.ui.setWindowFlag(Qt.WindowStaysOnTopHint)
 
+    # @Slot("QVariant")
+    # def print_to_GUI(self, plainTextEdit, answer):
+    #     plainTextEdit.appendPlainText(answer)
+    #     plainTextEdit.ensureCursorVisible()
     @Slot("QVariant")
-    def print_to_GUI(self, plainTextEdit, answer):
-        plainTextEdit.appendPlainText(answer)
-        plainTextEdit.ensureCursorVisible()
+    def print_to_GUI(self, plainTextEdit, answer): 
+        if isinstance(plainTextEdit, QPlainTextEdit): 
+            plainTextEdit.appendPlainText(answer) 
+            plainTextEdit.ensureCursorVisible() 
+        else: print("plainTextEdit is not a QPlainTextEdit object")
     
     @Slot("QVariant")
     def clear_question_line(self, question_line):
