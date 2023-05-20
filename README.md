@@ -36,4 +36,4 @@ python main.py
 
 ## 效果预览
 
-![效果预览图](https://github.com/uuzna/GQUPT/assets/87402636/ac0da97c-0021-4c52-ae8d-c9e902e0eb9c)
+![image](https://github.com/uuzna/GQUPT/assets/87402636/90189f4b-7062-4521-beb6-07e24d16a29f)
