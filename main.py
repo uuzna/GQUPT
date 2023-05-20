@@ -7,6 +7,7 @@ from PySide6.QtCore import Slot, Qt, QFile
 import os
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtWidgets import QWidget, QPlainTextEdit, QApplication, QFileDialog
+from PySide6.QtGui import QIcon
 # 在命令行窗口或终端中运行designer命令启动Qt Designer。
 
 signal = MySignals.Signals()
@@ -148,14 +149,12 @@ class MyWidget(QWidget):
         
     def model_load(self):
         index = self.ui.modelOptions.currentIndex()
-        print(index)
         lines = []
         with open("model_engine.txt", "r") as file:
             for line in file:
                 line = line.strip()  # 去除行尾的换行符和空白字符
                 lines.append(line)
             self.GPT.model_engine = lines[index]
-            print(lines[index])
         self.ui.setWindowFlag(Qt.WindowStaysOnTopHint, False)
         QtWidgets.QMessageBox.information(self, "Loading over !", "模型载入成功!")
         self.ui.setWindowFlag(Qt.WindowStaysOnTopHint)
@@ -183,7 +182,7 @@ class MyWidget(QWidget):
 # 程序入口
 if __name__ == "__main__":
     app = QApplication([])
-    # app.setWindowIcon(QIcon("logo.png"))    # 添加图标
+    app.setWindowIcon(QIcon("uuz.png"))    # 添加图标
     w = MyWidget()
     w.ui.show()
     app.exec()
