@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>557</width>
-    <height>425</height>
+    <height>487</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -201,7 +201,7 @@
        <item>
         <widget class="QLineEdit" name="APIKeys">
          <property name="text">
-          <string/>
+          <string>载入一次后即可永久保存,载入新的APIKeys会覆盖掉先前的</string>
          </property>
         </widget>
        </item>
@@ -232,21 +232,19 @@
        <item>
         <widget class="QComboBox" name="modelOptions">
          <property name="currentText">
-          <string>gpt-4</string>
+          <string>gpt-3.5(速度极快,效果较好)</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
          </property>
          <item>
           <property name="text">
-           <string>gpt-4</string>
+           <string>gpt-3.5(速度极快,效果较好)</string>
           </property>
          </item>
          <item>
           <property name="text">
-           <string>gpt-4-32k</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>gpt-3.5</string>
+           <string>gpt-4(速度极慢,效果最强)</string>
           </property>
          </item>
         </widget>
@@ -263,7 +261,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_6">
        <item>
-        <widget class="QLabel" name="selectModels_2">
+        <widget class="QLabel" name="sceneSet">
          <property name="maximumSize">
           <size>
            <width>55</width>
@@ -276,7 +274,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="modelOptions_2">
+        <widget class="QComboBox" name="sceneOptions">
          <property name="minimumSize">
           <size>
            <width>400</width>
@@ -294,9 +292,30 @@
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="checkBox">
+        <widget class="QCheckBox" name="topHand">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="cursor">
+          <cursorShape>ArrowCursor</cursorShape>
+         </property>
+         <property name="mouseTracking">
+          <bool>true</bool>
+         </property>
+         <property name="tabletTracking">
+          <bool>false</bool>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
          <property name="text">
           <string>窗口置顶</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
